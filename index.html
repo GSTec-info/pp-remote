@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!--
+Criado por: Generson Avelino da Silva
+
+Propósito: Facilitar a interação do pregador com os slides de apresentação durante o culto. Dando maior controle ao pregador sobre o tempo de resposta e a velocidade da apresentação.
+
+API Utilizada: Fornecido pelo ProPresenter. Para maior consulta, veja a documentação na pasta "Docs" desse projeto.
+
+Link: https://renewedvision.com/propresenter
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login - ProPresenter Control</title>
+    <link rel="stylesheet" href="/src/styles/styleAuth.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/icons/favicon-16x16.png">
+    <link rel="manifest" href="/src/config/site.webmanifest">
+    <link rel="mask-icon" href="/src/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <div id="container">
+        <p id="title"><img id="imgLogo" src="/src/icons/android-chrome-512x512.png">ProPresenter Control</p>
+
+        <div id="containerData">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username">
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password">
+
+            <button onclick="login()" id="btnLogin">Entrar</button>
+        </div>
+    </div>
+
+
+    <div id="containerAlert">
+        <div id="alert">
+            <h1 id="textAlert">Usuário ou senha inválidos</h1>
+            <button id="btnAlert">OK</button>
+        </div>
+    </div>
+
+    <script src="/src/config/pass.js"></script>
+    <script src="/src/scripts/index.js"></script>
+    <script>"serviceWorker" in navigator && navigator.serviceWorker.register("/src/scripts/service-worker.js").then(function (r) { console.log("Service Worker registrado com sucesso:", r) }).catch(function (r) { console.log("Falha ao registrar o Service Worker:", r) })</script>
+</body>
+
+</html>

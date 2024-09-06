@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--
+Criado por: Generson Avelino da Silva
+
+Propósito: Facilitar a interação do pregador com os slides de apresentação durante o culto. Dando maior controle ao pregador sobre o tempo de resposta e a velocidade da apresentação.
+
+API Utilizada: Fornecido pelo ProPresenter. Para maior consulta, veja a documentação na pasta "Docs" desse projeto.
+
+Link: https://renewedvision.com/propresenter
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ProPresenter Control</title>
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/icons/favicon-16x16.png">
+    <link rel="manifest" href="/src/config/site.webmanifest">
+    <link rel="mask-icon" href="/src/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src="/src/libs/axios.js"></script>
+</head>
+
+<body>
+    <div id="containerBody">
+        <img id="img-slogan" src="/src/icons/Slogan_Branco.png" />
+        <p id="textIndexSlide"></p>
+        <div id="box-content">
+            <button id="btn-previous" class="btn-previous">
+                <img class="img-btn" src="/src/icons/icon_back_white.png">
+            </button>
+
+            <div id="box-img">
+                <p id="text-alert"></p>
+                <button id="btn-refresh">ATUALIZAR</button>
+                <img id="img-slideCurrent">
+            </div>
+
+            <button id="btn-previous-portrait" class="btn-previous">
+                <img class="img-btn" src="/src/icons/icon_back_white.png">
+            </button>
+
+            <button id="btn-next">
+                <img class="img-btn" src="/src/icons/icon_next_white.png">
+            </button>
+        </div>
+        <div id="btn-logout">
+            <img id="img-logout" src="/src/icons/logout.svg">
+            <p id="text-logout">Sair</p>
+        </div>
+
+        <div class="spaceWidth spaceHeight">space</div>
+    </div>
+
+    <script src="/src/config/pass.js"></script>
+    <script src="/src/config/env.js"></script>
+    <script src="/src/scripts/home.js"></script>
+    <script>"serviceWorker" in navigator && navigator.serviceWorker.register("/src/scripts/service-worker.js").then(function (r) { console.log("Service Worker registrado com sucesso:", r) }).catch(function (r) { console.log("Falha ao registrar o Service Worker:", r) })</script>
+</body>
+
+</html>
