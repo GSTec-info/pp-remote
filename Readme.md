@@ -1,7 +1,7 @@
 # Controle de slides para ProPresenter 7.9+
 
-<h3 style="text-align: center;font-style: italic;">Desenvolvido por: <a href="https://github.com/GSTec-info" target="_blank">Generson Avelino da Silva</a></h3>
-<h3 style="text-align: center;font-style: italic;">Contato: <a href="mailto:generson.avelinosilva@gmail.com" target="_blank">generson.avelinosilva@gmail.com</a></h3>
+<h4 style="text-align: center;font-style: italic;">Desenvolvido por: <a href="https://github.com/GSTec-info" target="_blank">Generson Avelino da Silva</a></h4>
+<h4 style="text-align: center;font-style: italic;">Contato: <a href="mailto:generson.avelinosilva@gmail.com" target="_blank">generson.avelinosilva@gmail.com</a></h4>
 <br>
 
 ### Propósito
