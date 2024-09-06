@@ -22,10 +22,14 @@
 
 > - Ao executar o arquivo "server.js", o NodeJS criará um servidor web local, onde poderá receber requisições e enviar respostas.
 
-    -> Acesso em:  http:// + "IP_COMPUTADOR_PROPRESENTER" (Sem as aspas)
+> - Acesso em (Sem as aspas):
+
+    http:// + "IP_COMPUTADOR_PROPRESENTER"
 
 > - Dessa forma o dispositivo a ser utilizado, deve estar conectado a mesma rede do computador que está executando o servidor.
 > - Para que não fique aparecendo a execução do NodeJS para o usuário, o script VB "start_server.vbs" executa o cmd em segundo plano.
+
+** Obs: Para não precisar fazer nenhuma alteração nos scripts, colocar os arquivos do projeto dentro de uma pasta no "C:" (somente Windows) com nome "pp-remote" **
 
 ### API
 
