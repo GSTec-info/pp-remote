@@ -50,11 +50,16 @@ function checkAuthentication() {
   const arrAuthlocal = localStorage.getItem(nameLocalStorage);
   const authLocal = JSON.parse(arrAuthlocal);
 
-  const verifyAuth = authLocal !== null || authLocal[0].user === auth.user || authLocal[0].pass === auth.pass;
+  if (authLocal === null) {
+    // Se não tiver nenhuma credencial salva, encerra a função sem fazer nada
+    return;
+  }
+
+  const verifyAuth = authLocal[0].user === auth.user && authLocal[0].pass === auth.pass;
 
   // Verifica se o usuário está autenticado
   if (verifyAuth) {
-    // Se não estiver autenticado, redireciona para a página home
+    // Se já estiver autenticado, redireciona para a página home
     window.location.href = "/home";
   }
 }

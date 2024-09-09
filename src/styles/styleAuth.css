@@ -97,6 +97,11 @@ label {
   -o-border-radius: 50px;
   cursor: pointer;
   width: 20rem;
+  transition: background-color 0.5s ease;
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -ms-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
 }
 #btnLogin:hover {
   background-color: #2671a3;
@@ -148,6 +153,11 @@ label {
   -o-border-radius: 50px;
   margin-top: 1.5rem;
   width: 100%;
+  transition: background-color 0.5s ease;
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -ms-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
 }
 #btnAlert:hover {
   background-color: #2671a3;

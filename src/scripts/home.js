@@ -105,6 +105,11 @@ function createElementImage(boxImage, objImageUrl) {
   // Adiciona a nova imagem ao contêiner
   boxImage.appendChild(newImage);
 
+  // Aplica efeito de transição na exibição da imagem
+  setTimeout(() => {
+    newImage.style.opacity = 1;
+  }, 300);
+
   return newImage;
 }
 
@@ -125,27 +130,20 @@ async function updateImage() {
     // URL da imagem
     const objImageUrl = { url: `${baseUrl}/v1/presentation/${currentSlide}/thumbnail/${indexSlide}?quality=960&thumbnail_type=jpeg` };
 
+    // Cria uma nova imagem
+    const newImage = createElementImage(boxImage, objImageUrl);
+
     // Se não tiver slide na projeção, atribui uma imagem de slide não existente
     if (statusSlide === false) {
       objImageUrl.url = "/src/icons/notSlide.jpg";
-      const newImage = createElementImage(boxImage, objImageUrl);
-      // Aplica efeito de transição na exibição da imagem
-      setTimeout(() => {
-        newImage.style.opacity = 1;
-      }, 300);
+      createElementImage(boxImage, objImageUrl);
+
       return;
     }
 
     // Obtem a quantidade de slides da apresentação
     const totalCurrentSlideResponse = await axios.get(`${baseUrl}/v1/presentation/${currentSlide}`);
     const totalCurrentSlide = totalCurrentSlideResponse.data?.presentation?.groups[0].slides.length;
-
-    const newImage = createElementImage(boxImage, objImageUrl);
-
-    // Aplica efeito de transição na exibição da imagem
-    setTimeout(() => {
-      newImage.style.opacity = 1;
-    }, 300);
 
     // Mostra o índice do slide
     const numberIndexSlide = Number(indexSlide) + 1;
@@ -156,27 +154,10 @@ async function updateImage() {
         : `Slide ${numberIndexSlide} de ${totalCurrentSlide}`;
     document.getElementById("textIndexSlide").innerText = textIndexSlide;
   } catch (error) {
-    // Remove a última imagem, se houver
-    if (boxImage.lastElementChild) {
-      document.getElementById("img-slideCurrent").style.opacity = 0;
-      boxImage.removeChild(boxImage.lastElementChild);
-    }
-
     // URL da imagem
-    const imageUrl = "/src/icons/warningConection.jpg";
+    const objImageUrl = { url: "/src/icons/warningConection.jpg" };
 
-    // Cria um novo elemento de imagem e configura o atributo src
-    const newImage = document.createElement("img");
-    newImage.style.opacity = 0;
-    newImage.setAttribute("src", imageUrl);
-    newImage.id = "img-slideCurrent";
-
-    // Adiciona a nova imagem ao contêiner
-    boxImage.appendChild(newImage);
-
-    setTimeout(() => {
-      newImage.style.opacity = 1;
-    }, 300);
+    createElementImage(boxImage, objImageUrl);
 
     console.warn("Error in updateImage:", error);
   }
@@ -192,13 +173,20 @@ function checkAuthentication() {
   const objAuthlocal = localStorage.getItem(nameLocalStorage);
   const authLocal = JSON.parse(objAuthlocal);
 
-  const verifyAuth = authLocal === null || authLocal[0].user !== auth.user || authLocal[0].pass !== auth.pass;
+  if (authLocal === null) {
+    // Se não estiver autenticado, redireciona para a página de login
+    window.location.href = "/";
+    return;
+  }
+
+  const verifyAuth = authLocal[0].user === auth.user && authLocal[0].pass === auth.pass;
 
   // Verifica se o usuário está autenticado
-  if (verifyAuth) {
+  if (verifyAuth === false) {
     // Se não estiver autenticado, redireciona para a página de login
     window.location.href = "/";
   } else {
+    // Se estiver autenticado, Atualiza a visualização do preview de slides
     refreshSlide();
   }
 }
